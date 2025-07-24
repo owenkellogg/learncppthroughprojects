@@ -1,5 +1,6 @@
 [includedirs]
 /Users/zyler/.conan/data/boost/1.82.0/_/_/package/9248f1c90123a684232203646915706f0d530d46/include
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/include
 /Users/zyler/.conan/data/zlib/1.3.1/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/include
 /Users/zyler/.conan/data/bzip2/1.0.8/_/_/package/238a93dc813ca1550968399f1f8925565feeff8e/include
 /Users/zyler/.conan/data/libbacktrace/cci.20210118/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/include
@@ -7,12 +8,14 @@
 
 [libdirs]
 /Users/zyler/.conan/data/boost/1.82.0/_/_/package/9248f1c90123a684232203646915706f0d530d46/lib
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/lib
 /Users/zyler/.conan/data/zlib/1.3.1/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/lib
 /Users/zyler/.conan/data/bzip2/1.0.8/_/_/package/238a93dc813ca1550968399f1f8925565feeff8e/lib
 /Users/zyler/.conan/data/libbacktrace/cci.20210118/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/lib
 /Users/zyler/.conan/data/libiconv/1.17/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/lib
 
 [bindirs]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/bin
 /Users/zyler/.conan/data/bzip2/1.0.8/_/_/package/238a93dc813ca1550968399f1f8925565feeff8e/bin
 /Users/zyler/.conan/data/libiconv/1.17/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/bin
 
@@ -20,6 +23,7 @@
 
 
 [builddirs]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/
 /Users/zyler/.conan/data/zlib/1.3.1/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/
 /Users/zyler/.conan/data/bzip2/1.0.8/_/_/package/238a93dc813ca1550968399f1f8925565feeff8e/
 /Users/zyler/.conan/data/libbacktrace/cci.20210118/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/
@@ -67,6 +71,8 @@ boost_filesystem
 boost_atomic
 boost_wserialization
 boost_serialization
+ssl
+crypto
 z
 bz2
 backtrace
@@ -216,6 +222,72 @@ cmake_find_package_multi=Boost
 [generatorfilenames_boost]
 cmake_find_package=Boost
 cmake_find_package_multi=Boost
+
+
+[includedirs_openssl]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/include
+
+[libdirs_openssl]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/lib
+
+[bindirs_openssl]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/bin
+
+[resdirs_openssl]
+
+
+[builddirs_openssl]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738/
+
+[libs_openssl]
+ssl
+crypto
+
+[system_libs_openssl]
+
+
+[defines_openssl]
+
+
+[cppflags_openssl]
+
+
+[cxxflags_openssl]
+
+
+[cflags_openssl]
+
+
+[sharedlinkflags_openssl]
+
+
+[exelinkflags_openssl]
+
+
+[sysroot_openssl]
+
+
+[frameworks_openssl]
+
+
+[frameworkdirs_openssl]
+
+
+[rootpath_openssl]
+/Users/zyler/.conan/data/openssl/1.1.1h/_/_/package/240c2182163325b213ca6886a7614c8ed2bf1738
+
+[name_openssl]
+openssl
+
+[version_openssl]
+1.1.1h
+
+[generatornames_openssl]
+cmake_find_package=OpenSSL
+cmake_find_package_multi=OpenSSL
+
+[generatorfilenames_openssl]
+
 
 
 [includedirs_zlib]
@@ -483,9 +555,11 @@ stacktrace_addr2line_available=True
 [USER_bzip2]
 [USER_libbacktrace]
 [USER_libiconv]
+[USER_openssl]
 [USER_zlib]
 [ENV_boost]
 BOOST_ROOT=/Users/zyler/.conan/data/boost/1.82.0/_/_/package/9248f1c90123a684232203646915706f0d530d46
+[ENV_openssl]
 [ENV_zlib]
 [ENV_bzip2]
 PATH=["/Users/zyler/.conan/data/bzip2/1.0.8/_/_/package/238a93dc813ca1550968399f1f8925565feeff8e/bin"]
