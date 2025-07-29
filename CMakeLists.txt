@@ -48,11 +48,27 @@ target_link_libraries(network-monitor
         OpenSSL::Crypto
 )
 
+set(MAIN_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
+)
+
+
+
 # Tests
 set(TESTS_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/main.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/websocket-client.cpp"
 )
+add_executable(network-monitor-main "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+target_compile_features(network-monitor-main
+    PUBLIC
+        cxx_std_17
+)
+target_link_libraries(network-monitor-main
+    PUBLIC
+        network-monitor
+)
+
 add_executable(network-monitor-tests ${TESTS_SOURCES})
 target_compile_features(network-monitor-tests
     PRIVATE
@@ -71,6 +87,11 @@ target_link_libraries(network-monitor-tests
 add_test(
     NAME network-monitor-tests
     COMMAND $<TARGET_FILE:network-monitor-tests>
+)
+
+add_test(
+    NAME fake-echo-test
+    COMMAND echo "RUN FAKE ECHO TEST"
 )
 # This tells CMake to check for a specific output to verify the test outcome.
 # When all unit tests pass, Boost.Test prints "No errors detected".
