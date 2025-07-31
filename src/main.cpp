@@ -18,8 +18,10 @@ int main()
     // Always start with an I/O context object.
     boost::asio::io_context ioc {};
 
+    boost::asio::ssl::context ctx {boost::asio::ssl::context::tlsv12_client};
+
     // The class under test
-    WebSocketClient client {url, endpoint, port, ioc};
+    WebSocketClient client {url, endpoint, port, ioc, ctx};
 
     // We use these flags to check that the connection, send, receive functions
     // work as expected.
