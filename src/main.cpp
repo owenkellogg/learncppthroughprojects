@@ -12,7 +12,7 @@ int main()
     // Connection targets
     const std::string url {"ltnm.learncppthroughprojects.com"};
     const std::string endpoint {"/echo"};
-    const std::string port {"80"};
+    const std::string port {"443"};
     const std::string message {"Hello WebSocket"};
 
     // Always start with an I/O context object.
