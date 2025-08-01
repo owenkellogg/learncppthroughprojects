@@ -48,4 +48,14 @@ bool DownloadFile(
 
 }
 
+nlohmann::json ParseJsonFile(
+    const std::filesystem::path& source
+)
+{
+    std::ifstream file {source};
+    nlohmann::json json;
+    file >> json;
+    return json;
+}
+
 }
