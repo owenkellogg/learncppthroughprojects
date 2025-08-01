@@ -13,6 +13,9 @@ if(EXISTS ${CMAKE_CURRENT_BINARY_DIR}/conaninfo.txt)
 endif()
 find_package(Boost 1.82 REQUIRED COMPONENTS system unit_test_framework)
 find_package(OpenSSL REQUIRED)
+find_package(CURL REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
 
 # Called before any other target is defined.
 enable_testing()
@@ -27,11 +30,12 @@ endif()
 # Static library
 set(LIB_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/websocket-client.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/file-downloader.cpp"
 )
 add_library(network-monitor STATIC ${LIB_SOURCES})
 target_compile_features(network-monitor
     PUBLIC
-        cxx_std_14
+        cxx_std_17
 )
 target_compile_definitions(network-monitor
     PRIVATE
@@ -46,6 +50,8 @@ target_link_libraries(network-monitor
         Boost::system
         OpenSSL::SSL
         OpenSSL::Crypto
+        CURL::libcurl
+        nlohmann_json::nlohmann_json
 )
 
 set(MAIN_SOURCES
@@ -58,6 +64,7 @@ set(MAIN_SOURCES
 set(TESTS_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/main.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/websocket-client.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tests/file-downloader.cpp"
 )
 add_executable(network-monitor-main "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 target_compile_features(network-monitor-main
